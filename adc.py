@@ -1,18 +1,14 @@
 #!/usr/bin/python
 
 # Taken from: https://github.com/pimylifeup/Pi-ADC-Example-Code/blob/master/adc-code.py
- 
+
 import spidev
 import time
 
-#Define Variables
+# Define Variables.
 delay = 0.5
-ldr_channel = 0
+channel = 0
 
-#Create SPI
-spi = spidev.SpiDev()
-spi.open(0, 0)
- 
 
 def readadc(adcnum):
     # Read SPI data from the MCP3008, 8 channels in total
@@ -23,9 +19,14 @@ def readadc(adcnum):
     return data
 
 
-def main():
+def run():
+    #C reate SPI.
+    spi = spidev.SpiDev()
+    spi.open(0, 0)
+
+    # Read values from channel.
     while True:
-        ldr_value = readadc(ldr_channel)
+        ldr_value = readadc(channel)
         print "---------------------------------------"
         print("LDR Value: %d" % ldr_value)
         time.sleep(delay)

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # Based on: https://github.com/labstreaminglayer/liblsl-Python/blob/master/pylsl/examples/SendData.py
 

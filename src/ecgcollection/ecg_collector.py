@@ -21,7 +21,7 @@ class EcgCollector:
         self._cs = digitalio.DigitalInOut(board.D5)
          
         # Create MCP object
-        self._mcp = MCP.MCP3008(spi, cs)
+        self._mcp = MCP.MCP3008(self._spi, self._cs)
 
         # Initialize positive, negative, and ground channels.
         mcp_channels = [
@@ -32,12 +32,11 @@ class EcgCollector:
             MCP.P4,
             MCP.P5,
             MCP.P6,
-            MCP.P7,
-            MCP.P8
+            MCP.P7
         ]
-        self._ch_pos = AnalogIn(mcp, mcp_channels[ch_pos])
-        self._ch_neg = AnalogIn(mcp, mcp_channels[ch_neg])
-        self._ch_gnd = AnalogIn(mcp, mcp_channels[ch_gnd])
+        self._ch_pos = AnalogIn(self._mcp, mcp_channels[ch_pos])
+        self._ch_neg = AnalogIn(self._mcp, mcp_channels[ch_neg])
+        self._ch_gnd = AnalogIn(self._mcp, mcp_channels[ch_gnd])
 
     def obtain_sample(self):
         """Return channel data with ECG signal value obtained from samples at given time."""

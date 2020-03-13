@@ -2,12 +2,12 @@
 
 # Based on: https://learn.adafruit.com/mcp3008-spi-adc/python-circuitpython
 
-# import numpy as np
-# import adafruit_mcp3xxx.mcp3008 as MCP
-# from adafruit_mcp3xxx.analog_in import AnalogIn
-# import board
-# import busio
-# import digitalio
+import numpy as np
+import adafruit_mcp3xxx.mcp3008 as MCP
+from adafruit_mcp3xxx.analog_in import AnalogIn
+import board
+import busio
+import digitalio
 import random
 
 

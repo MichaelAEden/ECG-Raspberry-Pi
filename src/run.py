@@ -47,15 +47,13 @@ def run_with_printer():
 
 
 def run_with_plotter():
+    """Note this does not stream the data, but it's only used to visualize it."""
     ecg_collector = EcgCollector(
         ch_pos = CH_POSITIVE,
         ch_neg = CH_NEGATIVE,
         ch_gnd = CH_GROUND
     )
-    streamer = Streamer(1, SAMPLE_FREQ)
     plotter = Plotter(CHANNEL_COUNT, SAMPLE_PERIOD)
-
-    sample_count = 0
     plotter.display_data(ecg_collector.obtain_sample)
 
 

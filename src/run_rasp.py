@@ -10,8 +10,8 @@ from ecgcollection.ecg_collector import EcgCollector
 
 # Constants
 CHANNEL_COUNT = 4       # Right arm, left arm, left leg, calculated ECG signal.
-SAMPLE_PERIOD = 0.01
-SAMPLE_FREQ = int(1.0 / SAMPLE_PERIOD)
+SAMPLE_FREQ = 400
+SAMPLE_PERIOD = 1.0 / SAMPLE_FREQ
 
 CH_POSITIVE = 5
 CH_NEGATIVE = 6

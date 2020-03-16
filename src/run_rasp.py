@@ -10,7 +10,7 @@ from ecgcollection.ecg_collector import EcgCollector
 
 # Constants
 CHANNEL_COUNT = 4       # Right arm, left arm, left leg, calculated ECG signal.
-SAMPLE_PERIOD = 0.0025
+SAMPLE_PERIOD = 0.01
 SAMPLE_FREQ = int(1.0 / SAMPLE_PERIOD)
 
 CH_POSITIVE = 5
@@ -26,6 +26,8 @@ def run_with_printer():
     )
     streamer = Streamer(1, SAMPLE_FREQ)
     printer = Printer('POS', 'NEG', 'GND', 'ECG')
+
+    printer.print_headers()
 
     sample_count = 0
     run_time = time.time()
@@ -58,4 +60,4 @@ def run_with_plotter():
 
 
 if __name__ == '__main__':
-    run_with_plotter()
+    run_with_printer()

@@ -5,12 +5,11 @@ class Printer:
 
     def __init__(self, *headers):
         self._channel_count = len(headers)
+        self._headers = headers
 
-        self._print_headers(headers)
-
-    def _print_headers(self, headers):
+    def print_headers(self):
         header_format = '{:>15}' * self._channel_count
-        print(header_format.format(*headers))
+        print(header_format.format(*self._headers))
 
     def display_data(self, *data):
         if len(data) != self._channel_count:

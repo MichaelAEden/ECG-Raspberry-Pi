@@ -14,11 +14,10 @@ class Plotter:
     # Maximum number of data points to graph at any given point.
     _DATA_POINTS_MAX = 200
 
-    def __init__(self, channel_count, sample_period):
+    def __init__(self, channel_count, sample_period=-1):
         self._channel_count = channel_count
         self._channels = np.zeros(channel_count)
         self._sample_period = sample_period
-        self._sample_freq = int(1 / sample_period)
 
     def display_data(self, sample_data):
         """
@@ -47,7 +46,7 @@ class Plotter:
                 while (time.time() - start) < self._sample_period:
                     pass
 
-                if self._sample_count % self._sample_freq == 0:
+                if self._sample_count % 100 == 0:
                     print('Obtained {} samples over {} seconds'.format(self._sample_count, time.time() - self._start_time))
 
             # Trim data to keep under maximum number of data points.

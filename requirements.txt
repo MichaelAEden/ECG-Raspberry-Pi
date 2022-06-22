@@ -5,7 +5,7 @@ Adafruit-PureIO==1.0.4
 cycler==0.10.0
 kiwisolver==1.1.0
 matplotlib==3.2.0
-numpy==1.18.1
+numpy==1.22.0
 pyftdi==0.44.2
 pylsl==1.12.1
 pyparsing==2.4.6
